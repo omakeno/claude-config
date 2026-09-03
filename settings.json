@@ -1,0 +1,35 @@
+{
+  "permissions": {
+    "defaultMode": "plan"
+  },
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "powershell.exe -NoProfile -Command \"(New-Object Media.SoundPlayer 'C:\\\\Windows\\\\Media\\\\Alarm03.wav').PlaySync()\" 2>/dev/null",
+            "async": true
+          }
+        ]
+      }
+    ],
+    "Notification": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "grep -q '\"notification_type\":\"idle_prompt\"' || powershell.exe -NoProfile -Command \"(New-Object Media.SoundPlayer 'C:\\\\Windows\\\\Media\\\\Alarm03.wav').PlaySync()\" 2>/dev/null",
+            "async": true
+          }
+        ]
+      }
+    ]
+  },
+  "skipWorkflowUsageWarning": true,
+  "theme": "dark",
+  "inputNeededNotifEnabled": false,
+  "agentPushNotifEnabled": true,
+  "useAutoModeDuringPlan": true,
+  "model": "fable"
+}
